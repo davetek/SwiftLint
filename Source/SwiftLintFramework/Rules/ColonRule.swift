@@ -1,3 +1,4 @@
+
 import Foundation
 import SourceKittenFramework
 
@@ -54,7 +55,10 @@ public struct ColonRule: CorrectableRule, ConfigurationProviderRule {
             "func abc() { def(ghi: jkl) }",
             "func abc(def: Void) { ghi(jkl: mno) }",
             "class ABC { let def = ghi(jkl: mno) } }",
-            "func foo() { let dict = [1: 1] }"
+            "func foo() { let dict = [1: 1] }",
+            "func foo(lhs: Int, rhs : Int) -> Bool {\n" +
+            "    typealias Type = FooBar\n" +
+            "    return lhs > rhs ? Type.foo : Type.bar"
         ],
         triggeringExamples: [
             "let ↓abc:Void\n",
