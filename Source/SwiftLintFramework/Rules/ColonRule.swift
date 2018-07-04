@@ -55,7 +55,7 @@ public struct ColonRule: CorrectableRule, ConfigurationProviderRule {
             "func abc(def: Void) { ghi(jkl: mno) }",
             "class ABC { let def = ghi(jkl: mno) } }",
             "func foo() { let dict = [1: 1] }",
-            "func foo(lhs: Int, rhs : Int) -> Bool {\n" +
+            "func foo(lhs: Int, rhs: Int) -> Bool {\n" +
             "    typealias Type = FooBar\n" +
             "    return lhs > rhs ? Type.foo : Type.bar"
         ],
