@@ -1252,6 +1252,12 @@ class ABC { let def = ghi(jkl: mno) } }
 func foo() { let dict = [1: 1] }
 ```
 
+```swift
+func foo(lhs: Int, rhs : Int) -> Bool {
+    typealias Type = FooBar
+    return lhs > rhs ? Type.foo : Type.bar
+```
+
 </details>
 <details>
 <summary>Triggering Examples</summary>
