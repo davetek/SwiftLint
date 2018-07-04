@@ -1253,7 +1253,7 @@ func foo() { let dict = [1: 1] }
 ```
 
 ```swift
-func foo(lhs: Int, rhs : Int) -> Bool {
+func foo(lhs: Int, rhs: Int) -> Bool {
     typealias Type = FooBar
     return lhs > rhs ? Type.foo : Type.bar
 ```
