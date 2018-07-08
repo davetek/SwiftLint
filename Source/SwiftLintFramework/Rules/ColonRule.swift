@@ -163,7 +163,12 @@ public struct ColonRule: CorrectableRule, ConfigurationProviderRule {
         ]
     )
 
+    
     public func validate(file: File) -> [StyleViolation] {
+        // call the typeColonViolationRanges function which checks in 'file' to look for matches against
+        // the 'pattern', and returns an array of NSRange objects, each indicating where 'pattern' was found.
+        // Both 'pattern' and 'typeColonViolationRanges' are defined in ColonRule+Type.swift
+        // Then with the array returned, call the Array instance method 'compactMap'  this array of NSRange objects, call
         let violations = typeColonViolationRanges(in: file, matching: pattern).compactMap { range in
             return StyleViolation(ruleDescription: type(of: self).description,
                                   severity: configuration.severityConfiguration.severity,
