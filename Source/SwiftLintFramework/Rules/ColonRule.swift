@@ -163,18 +163,18 @@ public struct ColonRule: CorrectableRule, ConfigurationProviderRule {
         ]
     )
 
-    
     public func validate(file: File) -> [StyleViolation] {
         // call the typeColonViolationRanges function which checks in 'file' to look for matches against
         // the 'pattern', and returns an array of NSRange objects, each indicating where 'pattern' was found.
         //
         // On the returned array, call the Array instance method 'compactMap'
-        // which runs the closure on each range in the array; the closure returns a StyleViolation object composed of the
-        // ColonRule rule description, the ColonRule severity accessed via the ColonRule's configuration,
+        // which runs the closure on each range in the array; the closure returns a StyleViolation object composed
+        // of the ColonRule rule description, the ColonRule severity accessed via the ColonRule's configuration,
         // and finally the violation location consisting of file and character offset.
         // The resulting array of StyleViolation structs, filtered to remove any nils returned by the closure,
         // is assigned to the violations constant.
-        let violations = typeColonViolationRanges(in: file, matching: pattern).compactMap { range in
+        
+        let violations = typeColonViolationRanges(in: file, matching: pattern).map { range in
             return StyleViolation(ruleDescription: type(of: self).description,
                                   severity: configuration.severityConfiguration.severity,
                                   location: Location(file: file, characterOffset: range.location))
